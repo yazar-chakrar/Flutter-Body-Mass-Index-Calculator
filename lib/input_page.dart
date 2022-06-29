@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
+import 'main_card.dart';
 
 const bottomContainerHeight = 50.0;
 
@@ -26,13 +28,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: MainCard(
                     cardColor: myColor,
-                    cardChild: contentCard(),
+                    cardChild: ContentCard(
+                      myText: 'MALE',
+                      myIcon: FontAwesomeIcons.mars,
+                    ),
                   ),
                 ),
                 Expanded(
                   child: MainCard(
                     cardColor: myColor,
-                    cardChild: contentCard(),
+                    cardChild: ContentCard(
+                      myText: 'FEMALE',
+                      myIcon: FontAwesomeIcons.venus,
+                    ),
                   ),
                 ),
               ],
@@ -71,50 +79,3 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class contentCard extends StatelessWidget {
-  const contentCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          FontAwesomeIcons.mars,
-          size: 80.0,
-        ),
-        SizedBox(
-          height: 20.0,
-        ),
-        Text(
-          'MALE',
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Color(0xFF8D8E98),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class MainCard extends StatelessWidget {
-  MainCard({required this.cardColor, this.cardChild});
-  final Color cardColor;
-  final Widget? cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        //color: Color(0xFF1D1E33),
-        color: cardColor,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: cardChild,
-    );
-  }
-}
