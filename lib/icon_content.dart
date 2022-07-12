@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class ContentCard extends StatelessWidget {
   ContentCard({required this.myIcon, required this.myText});
@@ -19,10 +20,7 @@ class ContentCard extends StatelessWidget {
         ),
         Text(
           myText,
-          style: const TextStyle(
-            fontSize: 20.0,
-            color: Color(0xFF8D8E98),
-          ),
+          style: kLabelTextStyle,
         )
       ],
     );
